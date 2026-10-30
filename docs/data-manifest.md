@@ -1,0 +1,11 @@
+# Data provenance
+
+Authors: Abdelhakim Hannousse and Salima Yahiouche (2021). **Web page phishing detection**, Mendeley Data V3. DOI [10.17632/c2gw7fy2j4.3](https://doi.org/10.17632/c2gw7fy2j4.3). Publisher: [Mendeley Data](https://data.mendeley.com/datasets/c2gw7fy2j4/3). License: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), verified on the publisher page during this build. No endorsement is implied. Third-party rights may apply to underlying content; no page content is downloaded or redistributed here.
+
+Publisher file: `dataset_B_05_2020.csv`, 3,661,166 bytes, SHA256 `21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c`. Source collection dates: May 2020; publication version date: 25 June 2021. Downloaded 30 October 2026. The file includes raw URL indices and supplied features. PhishAI discards every supplied feature and derives its own lexical features from the URL strings; status `legitimate` maps to 0 and `phishing` maps to 1. These are source labels, not current independent assessments.
+
+The original corpus has 11,430 rows, 5,715 per class. Invalid strings and duplicate/conflicting clusters are excluded under the frozen policy. Actual exclusions, grouping snapshot digest, split sizes, class counts, and membership hashes are recorded in [machine-readable manifest](../ai-service/artifacts/data-manifest.json). Eligible rows: 11,307. Train: 8,069; validation: 1,585; final test: 1,653. Registrable-domain groups do not overlap across partitions; the bundled pinned public-suffix snapshot includes private suffixes and never downloads updates during grouping.
+
+Changes from publisher data: lexical validation, deterministic duplicate reduction/conflict exclusion, domain grouping, new lexical feature extraction, and derived trained model. No source HTML, DNS, traffic rank, WHOIS, page features, or online reputation is used. Raw data, URL-bearing split files, and candidate model files are ignored by Git. The selected model, aggregate evidence, and hash/feature-only error examples are versioned.
+
+Grouping reduces same-domain leakage; campaigns can span domains and source artifacts remain. The historical single-source sample does not establish contemporary performance. An old legitimate label can become stale, and malicious URLs can become inactive. No dataset URL is opened during preparation or analysis.

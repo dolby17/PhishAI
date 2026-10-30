@@ -1,0 +1,273 @@
+{
+  "$defs": {
+    "AnalyzeRequest": {
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "const": "1.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "requestId": {
+          "maxLength": 80,
+          "minLength": 1,
+          "pattern": "^[a-zA-Z0-9-]+$",
+          "title": "Requestid",
+          "type": "string"
+        },
+        "url": {
+          "maxLength": 4096,
+          "minLength": 1,
+          "title": "Url",
+          "type": "string"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "url"
+      ],
+      "title": "AnalyzeRequest",
+      "type": "object"
+    },
+    "AnalyzeResponse": {
+      "additionalProperties": false,
+      "properties": {
+        "schemaVersion": {
+          "const": "1.0",
+          "title": "Schemaversion",
+          "type": "string"
+        },
+        "requestId": {
+          "title": "Requestid",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "complete",
+            "partial"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "mode": {
+          "enum": [
+            "rules_only",
+            "ml",
+            "hybrid"
+          ],
+          "title": "Mode",
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "low",
+            "review",
+            "high"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "scoreType": {
+          "enum": [
+            "heuristic",
+            "uncalibrated_model_score",
+            "decision_score"
+          ],
+          "title": "Scoretype",
+          "type": "string"
+        },
+        "threshold": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Threshold",
+          "type": "number"
+        },
+        "featureVersion": {
+          "title": "Featureversion",
+          "type": "string"
+        },
+        "rules": {
+          "$ref": "#/$defs/RuleResult"
+        },
+        "model": {
+          "$ref": "#/$defs/ModelResult"
+        },
+        "evidence": {
+          "$ref": "#/$defs/Evidence"
+        },
+        "limitations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Limitations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "schemaVersion",
+        "requestId",
+        "status",
+        "mode",
+        "verdict",
+        "score",
+        "scoreType",
+        "threshold",
+        "featureVersion",
+        "rules",
+        "model",
+        "evidence",
+        "limitations"
+      ],
+      "title": "AnalyzeResponse",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "external": {
+          "const": "disabled",
+          "title": "External",
+          "type": "string"
+        },
+        "destinationContacted": {
+          "const": false,
+          "title": "Destinationcontacted",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "external",
+        "destinationContacted"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "ModelResult": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "available",
+            "unavailable"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "version": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Version"
+        },
+        "score": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Score"
+        },
+        "scoreType": {
+          "const": "uncalibrated_model_score",
+          "title": "Scoretype",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "version",
+        "scoreType"
+      ],
+      "title": "ModelResult",
+      "type": "object"
+    },
+    "Reason": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "feature": {
+          "title": "Feature",
+          "type": "string"
+        },
+        "observed": {
+          "title": "Observed",
+          "type": "number"
+        },
+        "weight": {
+          "title": "Weight",
+          "type": "integer"
+        },
+        "message": {
+          "title": "Message",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "feature",
+        "observed",
+        "weight",
+        "message"
+      ],
+      "title": "Reason",
+      "type": "object"
+    },
+    "RuleResult": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "title": "Version",
+          "type": "string"
+        },
+        "score": {
+          "maximum": 1,
+          "minimum": 0,
+          "title": "Score",
+          "type": "number"
+        },
+        "scoreType": {
+          "const": "heuristic",
+          "title": "Scoretype",
+          "type": "string"
+        },
+        "reasons": {
+          "items": {
+            "$ref": "#/$defs/Reason"
+          },
+          "title": "Reasons",
+          "type": "array"
+        }
+      },
+      "required": [
+        "version",
+        "score",
+        "scoreType",
+        "reasons"
+      ],
+      "title": "RuleResult",
+      "type": "object"
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

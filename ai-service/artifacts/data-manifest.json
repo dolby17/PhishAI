@@ -1,0 +1,87 @@
+{
+  "authors": [
+    "Abdelhakim Hannousse",
+    "Salima Yahiouche"
+  ],
+  "conflictingClustersExcluded": 0,
+  "dataSha256": "21093e2902e5441c86a6daf95e86e7c332046e477fdf109a579d7bd81e586d6c",
+  "doi": "10.17632/c2gw7fy2j4.3",
+  "duplicateRowsCollapsed": 113,
+  "eligibleRows": 11307,
+  "featureVersion": "lexical-1.0.0",
+  "groupOverlap": 0,
+  "invalidExcluded": 10,
+  "labelMap": {
+    "legitimate": 0,
+    "phishing": 1
+  },
+  "license": "CC BY 4.0",
+  "originalRows": 11430,
+  "policy": {
+    "dedup": "IDNA lowercase host + nondefault port + exact path/query; ignore scheme, userinfo, fragment; conflicting clusters excluded",
+    "hybridWeights": [
+      0.5,
+      0.75
+    ],
+    "logistic": {
+      "C": 1.0,
+      "max_iter": 1500,
+      "random_state": 17
+    },
+    "minimumHybridGain": 0.005,
+    "primaryMetric": "macro_f1",
+    "rf": {
+      "max_depth": 16,
+      "min_samples_leaf": 2,
+      "n_estimators": 120,
+      "n_jobs": 2,
+      "random_state": 17
+    },
+    "seed": 17,
+    "split": "SHA256(phishai-17|registrable-domain), first 8 hex digits modulo 100; <70 train, <85 validation, else test",
+    "thresholdGrid": [
+      0.3,
+      0.4,
+      0.5,
+      0.6,
+      0.7
+    ],
+    "tieBreak": "lower false-positive rate, then threshold closest to 0.5",
+    "tradeoff": "Equal class importance via macro-F1; no operational FPR guarantee or supervisor approval yet."
+  },
+  "privateSuffixesIncluded": true,
+  "pslSnapshotSha256": "b69315c085d53972724b8f2df111ffc329b0c84fe0a47d62c8c91655cc774a38",
+  "pslVersion": "5.4.0",
+  "ruleVersion": "rules-1.0.0",
+  "source": "https://data.mendeley.com/datasets/c2gw7fy2j4/3",
+  "splits": {
+    "test": {
+      "classCounts": {
+        "0": 873,
+        "1": 780
+      },
+      "groups": 1116,
+      "membershipSha256": "4ccd8caa6e264c61f842c538f572c5ef34c04bb9757bfb29f8eabd0d5e2995f4",
+      "rows": 1653
+    },
+    "train": {
+      "classCounts": {
+        "0": 3995,
+        "1": 4074
+      },
+      "groups": 5085,
+      "membershipSha256": "bd78dd12875834e5b3910f4701d58872c012fafe16b2158e6bbdf7fad630ada7",
+      "rows": 8069
+    },
+    "validation": {
+      "classCounts": {
+        "0": 841,
+        "1": 744
+      },
+      "groups": 1057,
+      "membershipSha256": "18061d97629979f2a3c932fc55e91ea55a8f6466ae4f02c313a0f46cc5357c29",
+      "rows": 1585
+    }
+  },
+  "unknownLabelExcluded": 0
+}

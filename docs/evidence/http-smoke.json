@@ -1,0 +1,30 @@
+{
+  "checkedAt": "2026-10-30T08:18:48.817932+00:00",
+  "health": {
+    "status": "ok",
+    "database": "ready",
+    "scanner": "ready",
+    "model": "ready"
+  },
+  "passed": [
+    "built HTML/assets",
+    "persisted account login after restart",
+    "separate anonymous session",
+    "authenticated real inference",
+    "grounded rule observations",
+    "malformed and oversized URL errors",
+    "logout",
+    "login after logout"
+  ],
+  "endToEndLatency": {
+    "input": "synthetic https://example.com/docs",
+    "scope": "warm HTTP Express + session MongoDB + FastAPI features/model/rules; excludes browser rendering",
+    "requests": 10,
+    "concurrency": 1,
+    "failures": 0,
+    "p50Ms": 16.397269999288255,
+    "p95MsNearestRank": 27.93020900026022
+  },
+  "restartPersistence": true,
+  "browserVisualReview": "not run: browser host unavailable"
+}

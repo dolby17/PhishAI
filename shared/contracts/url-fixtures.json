@@ -1,0 +1,180 @@
+[
+  {
+    "name": "ordinary https",
+    "url": "https://example.com/docs",
+    "valid": true,
+    "reasons": []
+  },
+  {
+    "name": "ip literal",
+    "url": "http://192.0.2.1/a",
+    "valid": true,
+    "reasons": [
+      "IP_HOST"
+    ]
+  },
+  {
+    "name": "ipv6",
+    "url": "https://[2001:db8::1]/",
+    "valid": true,
+    "reasons": [
+      "IP_HOST"
+    ]
+  },
+  {
+    "name": "unicode hostname",
+    "url": "https://bücher.example/",
+    "valid": true,
+    "reasons": [
+      "IDNA_HOST"
+    ]
+  },
+  {
+    "name": "punycode hostname",
+    "url": "https://xn--bcher-kva.example/",
+    "valid": true,
+    "reasons": [
+      "IDNA_HOST"
+    ]
+  },
+  {
+    "name": "userinfo and port",
+    "url": "http://review@example.test:8080/account/login/verify",
+    "valid": true,
+    "reasons": [
+      "USERINFO",
+      "ACCOUNT_TERMS",
+      "UNUSUAL_PORT"
+    ]
+  },
+  {
+    "name": "uppercase and trailing dot",
+    "url": "HTTPS://EXAMPLE.COM./",
+    "valid": true,
+    "reasons": []
+  },
+  {
+    "name": "fragment and query",
+    "url": "https://example.test/a?q=1#fragment",
+    "valid": true,
+    "reasons": []
+  },
+  {
+    "name": "default port",
+    "url": "https://example.test:443/",
+    "valid": true,
+    "reasons": []
+  },
+  {
+    "name": "missing scheme",
+    "url": "example.com",
+    "valid": false
+  },
+  {
+    "name": "javascript scheme",
+    "url": "javascript:alert(1)",
+    "valid": false
+  },
+  {
+    "name": "file scheme",
+    "url": "file:///etc/passwd",
+    "valid": false
+  },
+  {
+    "name": "blank",
+    "url": "",
+    "valid": false
+  },
+  {
+    "name": "leading space",
+    "url": " https://example.com",
+    "valid": false
+  },
+  {
+    "name": "embedded control",
+    "url": "https://exam\nple.com/",
+    "valid": false
+  },
+  {
+    "name": "backslash",
+    "url": "https://example.com\\@evil.test",
+    "valid": false
+  },
+  {
+    "name": "empty host",
+    "url": "https:///path",
+    "valid": false
+  },
+  {
+    "name": "bad port",
+    "url": "https://example.com:65536/",
+    "valid": false
+  },
+  {
+    "name": "zero port",
+    "url": "https://example.com:0/",
+    "valid": false
+  },
+  {
+    "name": "empty port",
+    "url": "https://example.com:/",
+    "valid": false
+  },
+  {
+    "name": "bad percent escape",
+    "url": "https://example.com/%zz",
+    "valid": false
+  },
+  {
+    "name": "encoded hostname",
+    "url": "https://%65xample.com/",
+    "valid": false
+  },
+  {
+    "name": "single label",
+    "url": "http://localhost/",
+    "valid": false
+  },
+  {
+    "name": "ambiguous shortened ipv4",
+    "url": "http://127.1/",
+    "valid": false
+  },
+  {
+    "name": "invalid idna",
+    "url": "https://bad_label.example/",
+    "valid": false
+  },
+  {
+    "name": "many host labels",
+    "url": "https://a.b.c.d.example.test/",
+    "valid": true,
+    "reasons": [
+      "MANY_HOST_LABELS"
+    ]
+  },
+  {
+    "name": "long hostname",
+    "url": "https://aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.example.test/",
+    "valid": true,
+    "reasons": [
+      "LONG_HOST"
+    ]
+  },
+  {
+    "name": "long url",
+    "url": "https://example.test/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "valid": true,
+    "reasons": [
+      "LONG_URL"
+    ]
+  },
+  {
+    "name": "many percent escapes",
+    "url": "https://example.test/%20%20%20%20",
+    "valid": true,
+    "reasons": [
+      "MANY_ESCAPES"
+    ]
+  }
+]

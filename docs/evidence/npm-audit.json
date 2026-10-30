@@ -1,0 +1,21 @@
+{
+  "checkedAt": "2026-10-30",
+  "packageAudit": "npm audit",
+  "vulnerabilities": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "dependencies": {
+    "prod": 107,
+    "dev": 145,
+    "optional": 53,
+    "peer": 0,
+    "peerOptional": 0,
+    "total": 251
+  },
+  "limitation": "Known-advisory check only, not a security audit."
+}

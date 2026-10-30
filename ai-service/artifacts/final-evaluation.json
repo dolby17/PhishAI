@@ -1,0 +1,819 @@
+{
+  "coverage": 1.0,
+  "deploymentChangedAfterTest": false,
+  "errors": [
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 31.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 0.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 2.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.988077434998132,
+        "url_length": 38.0
+      },
+      "inputSha256": "8ead1654162fce3a34d1c05da58f72d87a2a2f7adfb673f6a6143ea72372838a",
+      "predicted": 1,
+      "score": 0.7333996374432774
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 18.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.9500637564362093,
+        "url_length": 26.0
+      },
+      "inputSha256": "1084c3c4dbdba2b8bb186e5afab8790dd09bdea08eb2e45e2289b96e437ef039",
+      "predicted": 0,
+      "score": 0.17434999158041503
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 30.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 1.0,
+        "nonstandard_port": 0.0,
+        "path_length": 38.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 4.280645772372131,
+        "url_length": 75.0
+      },
+      "inputSha256": "c5cac74e78b3f8cd01e1e81537a6ae7ac73132c6b1916b2ef9d12938f330e1e5",
+      "predicted": 1,
+      "score": 0.7834662189498972
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 1.0,
+        "host_hyphens": 0.0,
+        "host_length": 9.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 19.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 5.0,
+        "url_digits": 2.0,
+        "url_entropy": 3.9760107890420997,
+        "url_length": 35.0
+      },
+      "inputSha256": "b610738f887d7ab13d6041f3769a3f3a122c0b1f780b31844b3a9bfe4d849f65",
+      "predicted": 1,
+      "score": 0.7624327665472055
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 13.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.5944656369614516,
+        "url_length": 21.0
+      },
+      "inputSha256": "1dbfc88b1a2103f940523ff55610d48b97dc0d05835bb1b7517425fb3598869d",
+      "predicted": 0,
+      "score": 0.04630472302654264
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 1.0,
+        "host_dots": 3.0,
+        "host_hyphens": 0.0,
+        "host_length": 22.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 6.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 4.0,
+        "url_digits": 3.0,
+        "url_entropy": 4.050013373778756,
+        "url_length": 35.0
+      },
+      "inputSha256": "68b624e34f12ddc950709d31aaffc0f13aa0d1acdc086f91b7fc278defb0e0c9",
+      "predicted": 1,
+      "score": 0.7124338305124234
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 1.0,
+        "host_hyphens": 0.0,
+        "host_length": 20.0,
+        "is_https": 1.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 29.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 4.0,
+        "url_digits": 0.0,
+        "url_entropy": 4.275505804810935,
+        "url_length": 57.0
+      },
+      "inputSha256": "5d5527f73a50c6f1af3fa30fc5da0f1918389ff6d102bc14d709509fe4ffe18b",
+      "predicted": 0,
+      "score": 0.32946999225878176
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 3.0,
+        "host_hyphens": 5.0,
+        "host_length": 47.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 22.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 4.446178131773995,
+        "url_length": 76.0
+      },
+      "inputSha256": "545f162a76ba13992aa12c8e65a43bea07bfc6efd23694238f8ada3e11240661",
+      "predicted": 1,
+      "score": 0.7561108904695624
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 1.0,
+        "host_hyphens": 0.0,
+        "host_length": 19.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 29.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 5.0,
+        "url_entropy": 4.447103750156401,
+        "url_length": 55.0
+      },
+      "inputSha256": "e6a7d1b7e11fb369b5892121559a9a1310777c6573fc633216523a17ae0460f4",
+      "predicted": 1,
+      "score": 0.40517035265979273
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 1.0,
+        "host_length": 23.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 39.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 8.0,
+        "url_digits": 8.0,
+        "url_entropy": 4.449894428171292,
+        "url_length": 69.0
+      },
+      "inputSha256": "5b1c5915d85cd3d41bfbf9d2d788b8267eb93f6c766475ae48b5a35301714bb2",
+      "predicted": 0,
+      "score": 0.3230978191651069
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 1.0,
+        "host_length": 23.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 53.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 9.0,
+        "url_digits": 8.0,
+        "url_entropy": 4.537875913380874,
+        "url_length": 83.0
+      },
+      "inputSha256": "73269ffba6a205f04d97cb82b28cac65da3e0ceda0c6ce28bd7e1a34628f5091",
+      "predicted": 0,
+      "score": 0.26893492760977533
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 30.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 4.095968631579971,
+        "url_length": 38.0
+      },
+      "inputSha256": "727df4391af1a06cf4dc1dd295cd8b3fbae107a7d1f6b3354961d370c896d772",
+      "predicted": 0,
+      "score": 0.32767126945499697
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 1.0,
+        "host_hyphens": 0.0,
+        "host_length": 17.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 44.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 7.0,
+        "url_digits": 0.0,
+        "url_entropy": 4.2412599020395465,
+        "url_length": 68.0
+      },
+      "inputSha256": "6ff912ba5e992ef3c6f97de766fbf90facf216076b305a1199926bd5da161e43",
+      "predicted": 1,
+      "score": 0.8416372474772199
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 1.0,
+        "host_length": 25.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 0.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 2.0,
+        "url_digits": 0.0,
+        "url_entropy": 4.077819531114783,
+        "url_length": 32.0
+      },
+      "inputSha256": "db67fdab8936f0eb6e7815302c0edf9261c8bd9b0ba23b75f69a4b0e0ea82b8b",
+      "predicted": 0,
+      "score": 0.3636839036135085
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 26.0,
+        "is_https": 1.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.797020431713803,
+        "url_length": 35.0
+      },
+      "inputSha256": "883e618cfaaecf3e3a58054fba87d371a9d0e2e3cd75f98f4ab63e76335554c9",
+      "predicted": 0,
+      "score": 0.228592916997044
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 24.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.9292292966721747,
+        "url_length": 32.0
+      },
+      "inputSha256": "22b135f8129b13e70c8f067e0866aec25bf91e342007786e71155172432756bf",
+      "predicted": 0,
+      "score": 0.21817526689403818
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 22.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.7898980954642876,
+        "url_length": 30.0
+      },
+      "inputSha256": "e49b8f0960c82f45cb3e219cb303bd833b516c1eb318eea17cba03e5947e8dde",
+      "predicted": 0,
+      "score": 0.1613647780481313
+    },
+    {
+      "actual": 0,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 2.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 28.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 0.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 2.0,
+        "url_digits": 2.0,
+        "url_entropy": 3.932874360347044,
+        "url_length": 35.0
+      },
+      "inputSha256": "989315c682727b3d267eb2ab6f73ab406796a86b28a577ee92dc961da7d24269",
+      "predicted": 1,
+      "score": 0.9231381157875492
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 18.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 1.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 3.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.6133373140453067,
+        "url_length": 26.0
+      },
+      "inputSha256": "a711ae332365d1e37ed9ea379ec0c8b8ae4aac6c4c04df7e030e383666cf2e3f",
+      "predicted": 0,
+      "score": 0.06063245281416708
+    },
+    {
+      "actual": 1,
+      "features": {
+        "at_count": 0.0,
+        "fragment_length": 0.0,
+        "has_userinfo": 0.0,
+        "host_digits": 0.0,
+        "host_dots": 2.0,
+        "host_hyphens": 0.0,
+        "host_length": 14.0,
+        "is_https": 0.0,
+        "is_ip": 0.0,
+        "is_punycode": 0.0,
+        "keyword_count": 0.0,
+        "nonstandard_port": 0.0,
+        "path_length": 0.0,
+        "percent_count": 0.0,
+        "query_length": 0.0,
+        "query_parameters": 0.0,
+        "slash_count": 2.0,
+        "url_digits": 0.0,
+        "url_entropy": 3.5944656369614516,
+        "url_length": 21.0
+      },
+      "inputSha256": "076396a72e8f1eeb3f2581c838f5077557a058a8fc049782da61df9a0547159d",
+      "predicted": 0,
+      "score": 0.04023655613093629
+    }
+  ],
+  "evaluatedAt": "2026-10-30T08:03:36.996073+00:00",
+  "inferenceLatency": {
+    "concurrency": 1,
+    "firstPredictionMs": 12.550409999676049,
+    "p50Ms": 11.127922000014223,
+    "p95Ms": 21.401853151019168,
+    "platform": "Linux-7.3.0-4-cachyos-x86_64-with-glibc2.44",
+    "processor": "",
+    "requests": 100,
+    "scope": "model.predict_proba only; excludes features, HTTP, load time"
+  },
+  "intendedDeployment": "random_forest",
+  "limitations": [
+    "Single historical May 2020 corpus; no contemporary or cross-source generalization established.",
+    "Publisher labels are not independently reverified. Source and campaign leakage can remain across domains.",
+    "No confidence intervals or user study. Eligibility exclusions apply before split; coverage is eligible-test coverage only."
+  ],
+  "methods": {
+    "dummy": {
+      "accuracy": 0.5281306715063521,
+      "confusion_matrix": [
+        [
+          873,
+          0
+        ],
+        [
+          780,
+          0
+        ]
+      ],
+      "fnr": 1.0,
+      "fpr": 0.0,
+      "macro_f1": 0.34560570071258906,
+      "per_class": {
+        "accuracy": 0.5281306715063521,
+        "legitimate": {
+          "f1-score": 0.6912114014251781,
+          "precision": 0.5281306715063521,
+          "recall": 1.0,
+          "support": 873.0
+        },
+        "macro avg": {
+          "f1-score": 0.34560570071258906,
+          "precision": 0.26406533575317603,
+          "recall": 0.5,
+          "support": 1653.0
+        },
+        "phishing": {
+          "f1-score": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 780.0
+        },
+        "weighted avg": {
+          "f1-score": 0.365049941587526,
+          "precision": 0.27892200618575036,
+          "recall": 0.5281306715063521,
+          "support": 1653.0
+        }
+      },
+      "pr_auc_average_precision": 0.47186932849364793
+    },
+    "hybrid": {
+      "accuracy": 0.794313369630974,
+      "confusion_matrix": [
+        [
+          647,
+          226
+        ],
+        [
+          114,
+          666
+        ]
+      ],
+      "fnr": 0.14615384615384616,
+      "fpr": 0.2588774341351661,
+      "macro_f1": 0.7942861911650161,
+      "per_class": {
+        "accuracy": 0.794313369630974,
+        "legitimate": {
+          "f1-score": 0.791921664626683,
+          "precision": 0.8501971090670171,
+          "recall": 0.7411225658648339,
+          "support": 873.0
+        },
+        "macro avg": {
+          "f1-score": 0.7942861911650161,
+          "precision": 0.7984169401837328,
+          "recall": 0.7974843598554939,
+          "support": 1653.0
+        },
+        "phishing": {
+          "f1-score": 0.7966507177033493,
+          "precision": 0.7466367713004485,
+          "recall": 0.8538461538461538,
+          "support": 780.0
+        },
+        "weighted avg": {
+          "f1-score": 0.7941531597263803,
+          "precision": 0.801330162026531,
+          "recall": 0.794313369630974,
+          "support": 1653.0
+        }
+      },
+      "pr_auc_average_precision": 0.89758402311427
+    },
+    "logistic": {
+      "accuracy": 0.7604355716878403,
+      "confusion_matrix": [
+        [
+          804,
+          69
+        ],
+        [
+          327,
+          453
+        ]
+      ],
+      "fnr": 0.41923076923076924,
+      "fpr": 0.07903780068728522,
+      "macro_f1": 0.7491238720715252,
+      "per_class": {
+        "accuracy": 0.7604355716878403,
+        "legitimate": {
+          "f1-score": 0.8023952095808383,
+          "precision": 0.7108753315649867,
+          "recall": 0.9209621993127147,
+          "support": 873.0
+        },
+        "macro avg": {
+          "f1-score": 0.7491238720715252,
+          "precision": 0.7893457117595049,
+          "recall": 0.7508657150409728,
+          "support": 1653.0
+        },
+        "phishing": {
+          "f1-score": 0.695852534562212,
+          "precision": 0.867816091954023,
+          "recall": 0.5807692307692308,
+          "support": 780.0
+        },
+        "weighted avg": {
+          "f1-score": 0.7521209890638821,
+          "precision": 0.7849308627830437,
+          "recall": 0.7604355716878403,
+          "support": 1653.0
+        }
+      },
+      "pr_auc_average_precision": 0.8489240541407734
+    },
+    "random_forest": {
+      "accuracy": 0.794313369630974,
+      "confusion_matrix": [
+        [
+          647,
+          226
+        ],
+        [
+          114,
+          666
+        ]
+      ],
+      "fnr": 0.14615384615384616,
+      "fpr": 0.2588774341351661,
+      "macro_f1": 0.7942861911650161,
+      "per_class": {
+        "accuracy": 0.794313369630974,
+        "legitimate": {
+          "f1-score": 0.791921664626683,
+          "precision": 0.8501971090670171,
+          "recall": 0.7411225658648339,
+          "support": 873.0
+        },
+        "macro avg": {
+          "f1-score": 0.7942861911650161,
+          "precision": 0.7984169401837328,
+          "recall": 0.7974843598554939,
+          "support": 1653.0
+        },
+        "phishing": {
+          "f1-score": 0.7966507177033493,
+          "precision": 0.7466367713004485,
+          "recall": 0.8538461538461538,
+          "support": 780.0
+        },
+        "weighted avg": {
+          "f1-score": 0.7941531597263803,
+          "precision": 0.801330162026531,
+          "recall": 0.794313369630974,
+          "support": 1653.0
+        }
+      },
+      "pr_auc_average_precision": 0.8969294446921092
+    },
+    "rules": {
+      "accuracy": 0.5281306715063521,
+      "confusion_matrix": [
+        [
+          873,
+          0
+        ],
+        [
+          780,
+          0
+        ]
+      ],
+      "fnr": 1.0,
+      "fpr": 0.0,
+      "macro_f1": 0.34560570071258906,
+      "per_class": {
+        "accuracy": 0.5281306715063521,
+        "legitimate": {
+          "f1-score": 0.6912114014251781,
+          "precision": 0.5281306715063521,
+          "recall": 1.0,
+          "support": 873.0
+        },
+        "macro avg": {
+          "f1-score": 0.34560570071258906,
+          "precision": 0.26406533575317603,
+          "recall": 0.5,
+          "support": 1653.0
+        },
+        "phishing": {
+          "f1-score": 0.0,
+          "precision": 0.0,
+          "recall": 0.0,
+          "support": 780.0
+        },
+        "weighted avg": {
+          "f1-score": 0.365049941587526,
+          "precision": 0.27892200618575036,
+          "recall": 0.5281306715063521,
+          "support": 1653.0
+        }
+      },
+      "pr_auc_average_precision": 0.5563110802593513
+    }
+  },
+  "selectionFreezeSha256": "3e5b5164b3170469a882dcc712f2c7c13bd9ab96ea6ccadeacdbf857eee71f71",
+  "testClassCounts": {
+    "0": 873,
+    "1": 780
+  },
+  "testRows": 1653,
+  "thresholds": {
+    "dummy": 0.6,
+    "hybrid": 0.3,
+    "logistic": 0.6,
+    "random_forest": 0.4,
+    "rules": 0.55
+  },
+  "version": "url-03d71640c7ed"
+}

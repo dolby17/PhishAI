@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0",
+  "requestId": "fixture",
+  "status": "partial",
+  "mode": "rules_only",
+  "verdict": "high",
+  "score": 0.6,
+  "scoreType": "heuristic",
+  "threshold": 0.55,
+  "featureVersion": "lexical-1.0.0",
+  "rules": {
+    "version": "rules-1.0.0",
+    "score": 0.6,
+    "scoreType": "heuristic",
+    "reasons": [
+      {
+        "code": "USERINFO",
+        "feature": "has_userinfo",
+        "observed": 1.0,
+        "weight": 35,
+        "message": "The URL contains user information before the hostname."
+      },
+      {
+        "code": "ACCOUNT_TERMS",
+        "feature": "keyword_count",
+        "observed": 3.0,
+        "weight": 15,
+        "message": "The URL contains at least two account-related terms."
+      },
+      {
+        "code": "UNUSUAL_PORT",
+        "feature": "nonstandard_port",
+        "observed": 1.0,
+        "weight": 10,
+        "message": "The port differs from the scheme's default."
+      }
+    ]
+  },
+  "model": {
+    "status": "unavailable",
+    "version": null,
+    "score": null,
+    "scoreType": "uncalibrated_model_score"
+  },
+  "evidence": {
+    "external": "disabled",
+    "destinationContacted": false
+  },
+  "limitations": [
+    "Low risk is not proof of safety. URL strings alone cannot establish a site's intent.",
+    "Rule observations explain the heuristic branch, not the model's prediction.",
+    "Scores are not calibrated probabilities. No DNS, page, TLS, or reputation checks run.",
+    "Model artifact unavailable; this result uses rules only."
+  ]
+}

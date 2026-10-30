@@ -1,0 +1,15 @@
+.git
+.agents
+.codex
+.aws
+.venv
+.env
+.runtime
+.tools
+data
+**/node_modules
+**/dist
+**/__pycache__
+**/.pytest_cache
+ai-service/artifacts/*.joblib
+ai-service/artifacts/splits.json
