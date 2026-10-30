@@ -96,8 +96,11 @@ test('session lifecycle, CSRF, protected scans, contract failures and privacy', 
   }
   behavior = '422'; await post('/api/v1/scans', { url: 'invalid' }).expect(400); behavior = 'valid';
   await post('/api/v1/scans', { url: 'x'.repeat(40000) }).expect(413);
-  const collections = await db.db().listCollections().toArray();
-  assert.equal(collections.some(c => c.name === 'scans'), false);
+  const storedScan = await db.db().collection('scans').findOne({ 'analysis.requestId': scan.body.requestId });
+  assert.ok(storedScan);
+  assert.equal(storedScan.url, undefined);
+  assert.equal(JSON.stringify(storedScan).includes('https://example.com/'), false);
+  assert.equal(storedScan.analysis.report?.input.hostname ?? null, null);
   const storedUser = await db.db().collection('users').findOne({ email: 'test@example.test' });
   assert.equal(storedUser?.password, undefined);
   assert.equal(storedUser?.passwordHash.includes(password), false);

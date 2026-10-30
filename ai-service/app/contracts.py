@@ -39,6 +39,45 @@ class Evidence(StrictModel):
     destinationContacted: Literal[False]
 
 
+class InputSummary(StrictModel):
+    scheme: str
+    hostname: str | None
+    hostType: Literal["domain", "ip"]
+    urlLength: int
+    pathLength: int
+    queryLength: int
+    hasUserinfo: bool
+
+
+class IndicatorDetail(StrictModel):
+    code: str
+    explanation: str
+    recommendation: str
+
+
+class Contribution(StrictModel):
+    feature: str
+    label: str
+    observed: float
+    contribution: float
+
+
+class ModelExplanation(StrictModel):
+    status: Literal["available", "unavailable", "unsupported"]
+    method: Literal["tree_path_score_change"]
+    baseline: float | None = Field(default=None, ge=0, le=1)
+    contributions: list[Contribution]
+    note: str
+
+
+class AnalysisReport(StrictModel):
+    version: Literal["report-1.0.0"]
+    input: InputSummary
+    indicators: list[IndicatorDetail]
+    modelExplanation: ModelExplanation
+    recommendations: list[str]
+
+
 class AnalyzeResponse(StrictModel):
     schemaVersion: Literal["1.0"]
     requestId: str
@@ -53,3 +92,4 @@ class AnalyzeResponse(StrictModel):
     model: ModelResult
     evidence: Evidence
     limitations: list[str]
+    report: AnalysisReport | None = None

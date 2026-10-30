@@ -9,11 +9,16 @@
 | `POST /api/v1/auth/register` | Create account and rotate session; email and password only |
 | `POST /api/v1/auth/login` | Generic failure; rotate session on success |
 | `POST /api/v1/auth/logout` | Destroy session and clear cookie |
-| `POST /api/v1/scans` | Authenticated, stateless scan; body `{ "url": "https://example.com/" }` |
+| `POST /api/v1/scans` | Authenticated scan with minimized private persistence; body `{ "url": "https://example.com/" }` |
+| `GET /api/v1/scans?page=1&limit=10` | Owner-only history; page 1–10000, limit 1–50; unknown/invalid query parameters rejected |
+| `GET /api/v1/scans/:id` | Owner-only saved report; foreign/expired/missing IDs return 404 |
+| `DELETE /api/v1/scans/:id` | Delete one owned active report; CSRF/origin required |
+| `DELETE /api/v1/scans` | Delete all reports belonging to the signed-in user |
+| `GET /api/v1/dashboard/summary` | Owner-filtered total/high/review/low/partial counts and latest timestamp |
 
 All mutations require exact `Origin` and `X-CSRF-Token`. Obtain the token from the session endpoint, use cookies, then replace the token after login/registration. JSON body limit is 32 KiB. Global API limit: 300/15 minutes/IP; account attempts: 12/15 minutes/IP; scans: 20/minute/user. Limits are in-memory and intended for a single local instance. No CORS access is enabled. Responses containing account/session/analysis data use `Cache-Control: no-store`.
 
-`POST /internal/v1/analyze` accepts schema version `1.0`, bounded request ID, and a URL. It is not a public route. Express calls only the configured fixed AI endpoint, forbids redirects, uses a five-second deadline, bounds its response to 64 KiB, and verifies the returned request ID. No URL text is returned. Errors use `{ "error": { "code": "...", "message": "..." } }`. Invalid input: public 400/internal 422. Oversize body: 413. Missing auth: 401. Origin/CSRF: 403. Rate limits: 429. Service/model failure: 503.
+`POST /internal/v1/analyze` accepts schema version `1.0`, bounded request ID, and a URL. It is not a public route. Express calls only the configured fixed AI endpoint, forbids redirects, uses a five-second deadline, bounds its response to 64 KiB, and verifies the returned request ID. No original URL, path/query/userinfo/fragment text is returned. The immediate report includes only its normalized hostname and numeric URL-structure fields. Saved detail and JSON export omit the hostname. A successful public scan response adds `scanId`, `analyzedAt` and `expiresAt`; persistence failure returns 503 `HISTORY_UNAVAILABLE`. Errors use `{ "error": { "code": "...", "message": "..." } }`. Invalid input: public 400/internal 422. Oversize body: 413. Missing auth: 401. Origin/CSRF: 403. Rate limits: 429. Service/model failure: 503.
 
 ## Frozen URL policy: lexical-1.0.0
 
@@ -25,3 +30,11 @@ All mutations require exact `Origin` and `X-CSRF-Token`. Obtain the token from t
 - No HTTPS or top-level-domain safety guarantee. No configured rule uses TLD alone.
 
 Nine rules are specified in `ai-service/app/rules.py`: IP host (30), userinfo (35), IDNA (15), at least five hostname labels (15), URL length >150 (20), hostname length >60 (10), at least two account-related terms (15), at least four percent escapes (10), nondefault port (10). The heuristic is `min(sum(weights),100)/100`, with high ≥0.55 and review ≥0.25. These hand-set weights are transparent baseline choices, not calibrated probabilities. ML/hybrid threshold comes from frozen validation selection.
+
+## Detailed reports and privacy
+
+The additive optional `report` field keeps internal schema version 1.0 compatible with existing clients. Report format `report-1.0.0` contains URL-structure counts, per-rule explanations/recommendations, model-specific tree-path score contributions, and suggested next steps. Old reports without this field remain readable. Missing/unsupported model explanations are explicitly labeled; no model reason is invented.
+
+For the deployed Random Forest, average the positive-class score at roots as a baseline. For each tree, follow the actual float32 input path and attribute each child-minus-parent score change to its split feature. Average across trees. The baseline plus all twenty contributions must reconstruct the returned model score within 1e-7 or explanation availability falls back to unsupported. This is descriptive path attribution, not SHAP or causality. It does not change model predictions, trained features, rules, thresholds or historical metrics. scikit-learn documents forest prediction as the [mean of the trees' class scores](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html).
+
+Saved records contain owner ID, creation/expiry times and minimized analysis. No original URL or hostname text is retained. Every list/detail/summary read includes both owner ID and `expiresAt > now`. Reports expire after 30 days using a MongoDB TTL index; [background deletion is asynchronous](https://www.mongodb.com/docs/manual/core/index-ttl/), so application filtering enforces immediate logical expiry. Deletion uses owner filters even for bulk operations. JSON exports mirror the minimized representation; printing an immediate report can include its transient hostname. Users should inspect an exported document before sharing it.

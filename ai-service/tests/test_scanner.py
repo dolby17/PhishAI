@@ -88,3 +88,41 @@ def test_contract_errors_never_echo_input():
         response = client.post("/internal/v1/analyze", json={"schemaVersion": "bad", "requestId": "test", "url": "https://secret:password@example.com/"})
         assert response.status_code == 422
         assert "password" not in response.text
+
+
+def test_report_explains_rules_without_echoing_credentials_or_query():
+    raw = "https://private-user:private-password@example.test:8080/account/login/verify?token=private-query#private-fragment"
+    with TestClient(app) as client:
+        response = client.post('/internal/v1/analyze', json={"schemaVersion": "1.0", "requestId": "report", "url": raw})
+        assert response.status_code == 200
+        body = response.json()
+        assert body['report']['input']['hostname'] == 'example.test'
+        assert body['report']['input']['hasUserinfo'] is True
+        assert {item['code'] for item in body['report']['indicators']} == {item['code'] for item in body['rules']['reasons']}
+        assert all(item['explanation'] and item['recommendation'] for item in body['report']['indicators'])
+        assert len(body['report']['recommendations']) >= 2
+        for secret in ['private-user', 'private-password', 'private-query', 'private-fragment']:
+            assert secret not in response.text
+
+
+def test_local_model_contributions_reconstruct_predictions():
+    from app.report import explain_forest
+    store = ModelStore()
+    assert store.status == 'ready', 'The versioned model artifact is required for review verification.'
+    inputs = [fixture['url'] for fixture in FIXTURES if fixture['valid']]
+    inputs += ['https://example.test/' + 'a' * length for length in [1, 50, 200, 1000, 4000]]
+    for raw in inputs:
+        vector = feature_vector(raw)
+        score = store.predict(vector)
+        explanation = explain_forest(store.bundle, vector, score)
+        assert explanation['status'] == 'available'
+        assert len(explanation['contributions']) == len(FEATURE_NAMES)
+        assert explanation['baseline'] + sum(item['contribution'] for item in explanation['contributions']) == pytest.approx(score, abs=1e-8)
+        assert {item['feature']: item['observed'] for item in explanation['contributions']} == extract_features(raw)
+
+
+def test_report_has_explicit_missing_and_unsupported_explanations(tmp_path):
+    from app.report import explain_forest
+    vector = feature_vector('https://example.com/')
+    assert explain_forest(None, vector, None)['status'] == 'unavailable'
+    assert explain_forest({'model': object()}, vector, 0.5)['status'] == 'unsupported'

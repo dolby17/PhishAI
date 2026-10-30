@@ -1,5 +1,16 @@
 # Change log
 
+## Review completion update — 30 October 2026
+
+- Replace the dark sidebar layout with a simple white/muted-blue interface and two views.
+- Add private paginated report history, dashboard counts, single/bulk deletion, and 30-day retention with immediate logical expiry.
+- Add grounded rule explanations, local Random Forest score contributions, practical next steps, minimized JSON export and a print layout.
+- Keep original URL text and hostnames out of stored/exported reports; enforce owner isolation and CSRF/origin on mutations.
+- Preserve the frozen model artifact, features, rules, thresholds and historical metrics.
+- Verify 53 service checks, live full-stack ownership/privacy/deletion flows and persisted-report restart behavior; 24 named real Firefox browser checks and desktop/mobile screenshot review passed. Eight of the original ten requirements now have focused validation evidence; equal-weight completion remains provisional.
+
+Project owner and Git author: **Veer Pratap Shekhar** `<shekharveer17@gmail.com>`.
+
 ## 0.1.0 — 30 October 2026
 
 Built the urgent local review demonstration from the reviewed project plan:

@@ -8,6 +8,7 @@ from app.contracts import AnalyzeRequest, AnalyzeResponse
 from app.features import FEATURE_NAMES, FEATURE_VERSION, InvalidURL, extract_features
 from app.model import ModelStore
 from app.rules import analyze_rules
+from app.report import build_report
 
 
 @asynccontextmanager
@@ -64,4 +65,5 @@ def analyze(body: AnalyzeRequest):
             "Rule observations explain the heuristic branch, not the model's prediction.",
             "Scores are not calibrated probabilities. No DNS, page, TLS, or reputation checks run.",
         ] + (["Model artifact unavailable; this result uses rules only."] if ml_score is None else []),
+        "report": build_report(body.url, features, rules, store, ml_score, verdict),
     }

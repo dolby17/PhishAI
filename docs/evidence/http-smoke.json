@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-10-30T08:18:48.817932+00:00",
+  "checkedAt": "2026-10-30T09:11:37.752007+00:00",
   "health": {
     "status": "ok",
     "database": "ready",
@@ -12,6 +12,11 @@
     "separate anonymous session",
     "authenticated real inference",
     "grounded rule observations",
+    "model contribution reconstruction",
+    "minimized saved reports",
+    "two-user history/detail/dashboard isolation",
+    "history pagination",
+    "single and owner-scoped bulk deletion",
     "malformed and oversized URL errors",
     "logout",
     "login after logout"
@@ -22,9 +27,9 @@
     "requests": 10,
     "concurrency": 1,
     "failures": 0,
-    "p50Ms": 16.397269999288255,
-    "p95MsNearestRank": 27.93020900026022
+    "p50Ms": 23.62015149992658,
+    "p95MsNearestRank": 24.66692899906775
   },
   "restartPersistence": true,
-  "browserVisualReview": "not run: browser host unavailable"
+  "browserVisualReview": "Recorded separately in docs/evidence/browser-check.json when executed."
 }

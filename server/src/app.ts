@@ -10,6 +10,7 @@ import path from 'node:path';
 import Ajv2020 from 'ajv/dist/2020.js';
 import type { Config } from './config.js';
 import { hashPassword, verifyPassword } from './password.js';
+import { createHistory } from './history.js';
 import type { Analysis } from '../../shared/types.js';
 
 declare module 'express-session' {
@@ -28,6 +29,7 @@ export async function createApp(config: Config, projectRoot: string, fetcher: Fe
   await client.connect();
   const users = client.db().collection<User>('users');
   await users.createIndex({ email: 1 }, { unique: true });
+  const history = await createHistory(client.db());
   const store = MongoStore.create({ clientPromise: Promise.resolve(client), collectionName: 'sessions',
     ttl: config.sessionTtlSeconds, autoRemove: 'native' });
   // Consume store errors without printing session documents or connection strings.
@@ -118,6 +120,7 @@ export async function createApp(config: Config, projectRoot: string, fetcher: Fe
     res.clearCookie('phishai.sid', { httpOnly: true, sameSite: 'strict', secure: config.secureCookie, path: '/' });
     res.status(204).end();
   });
+  app.use('/api/v1', history.router);
   app.post('/api/v1/scans', rateLimit({ windowMs: 60 * 1000, limit: 20,
     keyGenerator: req => req.session.userId ?? 'anonymous', validate: { keyGeneratorIpFallback: false },
     handler: (_req, res) => error(res, 429, 'SCAN_RATE_LIMIT', 'Scan limit reached. Wait one minute.') }), async (req, res) => {
@@ -144,7 +147,10 @@ export async function createApp(config: Config, projectRoot: string, fetcher: Fe
       }
       const result: unknown = JSON.parse(Buffer.concat(chunks).toString('utf8'));
       if (!validate(result) || result.requestId !== requestId) throw new Error('Invalid scanner contract');
-      res.json(result);
+      let saved;
+      try { saved = await history.save(req.session.userId!, result); }
+      catch { return error(res, 503, 'HISTORY_UNAVAILABLE', 'Analysis could not be saved. Please try again later.'); }
+      res.json(saved);
     } catch { error(res, 503, 'ANALYSIS_UNAVAILABLE', 'Analysis is unavailable. No safety verdict was produced.'); }
   });
   app.use('/api', (_req, res) => error(res, 404, 'NOT_FOUND', 'Endpoint not found.'));

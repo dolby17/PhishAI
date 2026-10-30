@@ -13,4 +13,6 @@
 | 2026-10-30 | Native demo launcher alongside Compose | Docker not installed; real project-local MongoDB permits a runnable demo |
 | 2026-10-30 | Preserve remote initial commit and author future changes as Veer Pratap Shekhar | Explicit user identity and remote supplied; commit only after checks |
 
-Open: exact review time, final submission deadline, supervisor scope/weights, acceptable FP/FN trade-off, final manuscript format, future history retention, and public deployment decision. None blocks the local stateless review slice.
+Open: exact review time, final submission deadline, supervisor scope/weights, acceptable FP/FN trade-off, final manuscript format, and public deployment decision. None blocks the local review build.
+
+30 October 2026 — Additional review work explicitly authorized: simplify the interface to white/muted blue, add useful private history/dashboard and detailed reports before the review. This supersedes the earlier decision to defer history until after review. Choose 30-day retention, omit hostname and original URL text from stored reports/JSON exports, enforce owner filters and expiry on every read, and provide individual/bulk deletion. Preserve the frozen model artifact and evaluation. The user explicitly approved local headless Firefox testing after the browser connector failed.

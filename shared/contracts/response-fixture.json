@@ -51,5 +51,46 @@
     "Rule observations explain the heuristic branch, not the model's prediction.",
     "Scores are not calibrated probabilities. No DNS, page, TLS, or reputation checks run.",
     "Model artifact unavailable; this result uses rules only."
-  ]
+  ],
+  "report": {
+    "version": "report-1.0.0",
+    "input": {
+      "scheme": "http",
+      "hostname": "example.test",
+      "hostType": "domain",
+      "urlLength": 52,
+      "pathLength": 21,
+      "queryLength": 0,
+      "hasUserinfo": true
+    },
+    "indicators": [
+      {
+        "code": "USERINFO",
+        "explanation": "Text before @ is user information, not the destination hostname. It can make the destination easy to misread.",
+        "recommendation": "Read the actual hostname after @. Do not trust a brand name appearing before it."
+      },
+      {
+        "code": "ACCOUNT_TERMS",
+        "explanation": "Several account-related terms appear in the URL. Such terms occur in both legitimate sign-in pages and phishing links.",
+        "recommendation": "For account actions, open the known official application or type its verified address yourself."
+      },
+      {
+        "code": "UNUSUAL_PORT",
+        "explanation": "The URL specifies a nondefault port. Development and internal services can use these ports legitimately.",
+        "recommendation": "Confirm that this port is expected for the service you intended to use."
+      }
+    ],
+    "modelExplanation": {
+      "status": "unavailable",
+      "method": "tree_path_score_change",
+      "baseline": null,
+      "contributions": [],
+      "note": "No model explanation is available for this result."
+    },
+    "recommendations": [
+      "Avoid entering passwords, payment information or recovery codes through this link until verified.",
+      "A low score is not proof of safety. Verify important links through a trusted, independent source.",
+      "If you already entered sensitive information, use the official service to change affected credentials and contact its support."
+    ]
+  }
 }

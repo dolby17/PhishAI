@@ -1,5 +1,44 @@
 {
   "$defs": {
+    "AnalysisReport": {
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "const": "report-1.0.0",
+          "title": "Version",
+          "type": "string"
+        },
+        "input": {
+          "$ref": "#/$defs/InputSummary"
+        },
+        "indicators": {
+          "items": {
+            "$ref": "#/$defs/IndicatorDetail"
+          },
+          "title": "Indicators",
+          "type": "array"
+        },
+        "modelExplanation": {
+          "$ref": "#/$defs/ModelExplanation"
+        },
+        "recommendations": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Recommendations",
+          "type": "array"
+        }
+      },
+      "required": [
+        "version",
+        "input",
+        "indicators",
+        "modelExplanation",
+        "recommendations"
+      ],
+      "title": "AnalysisReport",
+      "type": "object"
+    },
     "AnalyzeRequest": {
       "additionalProperties": false,
       "properties": {
@@ -108,6 +147,17 @@
           },
           "title": "Limitations",
           "type": "array"
+        },
+        "report": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AnalysisReport"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null
         }
       },
       "required": [
@@ -126,6 +176,35 @@
         "limitations"
       ],
       "title": "AnalyzeResponse",
+      "type": "object"
+    },
+    "Contribution": {
+      "additionalProperties": false,
+      "properties": {
+        "feature": {
+          "title": "Feature",
+          "type": "string"
+        },
+        "label": {
+          "title": "Label",
+          "type": "string"
+        },
+        "observed": {
+          "title": "Observed",
+          "type": "number"
+        },
+        "contribution": {
+          "title": "Contribution",
+          "type": "number"
+        }
+      },
+      "required": [
+        "feature",
+        "label",
+        "observed",
+        "contribution"
+      ],
+      "title": "Contribution",
       "type": "object"
     },
     "Evidence": {
@@ -147,6 +226,137 @@
         "destinationContacted"
       ],
       "title": "Evidence",
+      "type": "object"
+    },
+    "IndicatorDetail": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "title": "Code",
+          "type": "string"
+        },
+        "explanation": {
+          "title": "Explanation",
+          "type": "string"
+        },
+        "recommendation": {
+          "title": "Recommendation",
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "explanation",
+        "recommendation"
+      ],
+      "title": "IndicatorDetail",
+      "type": "object"
+    },
+    "InputSummary": {
+      "additionalProperties": false,
+      "properties": {
+        "scheme": {
+          "title": "Scheme",
+          "type": "string"
+        },
+        "hostname": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Hostname"
+        },
+        "hostType": {
+          "enum": [
+            "domain",
+            "ip"
+          ],
+          "title": "Hosttype",
+          "type": "string"
+        },
+        "urlLength": {
+          "title": "Urllength",
+          "type": "integer"
+        },
+        "pathLength": {
+          "title": "Pathlength",
+          "type": "integer"
+        },
+        "queryLength": {
+          "title": "Querylength",
+          "type": "integer"
+        },
+        "hasUserinfo": {
+          "title": "Hasuserinfo",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "scheme",
+        "hostname",
+        "hostType",
+        "urlLength",
+        "pathLength",
+        "queryLength",
+        "hasUserinfo"
+      ],
+      "title": "InputSummary",
+      "type": "object"
+    },
+    "ModelExplanation": {
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "available",
+            "unavailable",
+            "unsupported"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "method": {
+          "const": "tree_path_score_change",
+          "title": "Method",
+          "type": "string"
+        },
+        "baseline": {
+          "anyOf": [
+            {
+              "maximum": 1,
+              "minimum": 0,
+              "type": "number"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Baseline"
+        },
+        "contributions": {
+          "items": {
+            "$ref": "#/$defs/Contribution"
+          },
+          "title": "Contributions",
+          "type": "array"
+        },
+        "note": {
+          "title": "Note",
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "method",
+        "contributions",
+        "note"
+      ],
+      "title": "ModelExplanation",
       "type": "object"
     },
     "ModelResult": {

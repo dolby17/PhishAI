@@ -1,0 +1,51 @@
+{
+  "checkedAt": "2026-10-30T09:37:56.164Z",
+  "browser": "Firefox 159.0 / Mozilla geckodriver 0.37.1",
+  "desktopViewport": [
+    1366,
+    900
+  ],
+  "mobileViewport": [
+    375,
+    812
+  ],
+  "passed": [
+    "desktop layout",
+    "keyboard skip link",
+    "protected history navigation",
+    "registration",
+    "password confirmation",
+    "accessible form labels",
+    "invalid input has no safety verdict",
+    "real trained-model scan",
+    "three grounded rule explanations",
+    "model contribution table",
+    "result focus",
+    "non-clickable destination",
+    "minimized JSON download with all model contributions",
+    "print action expands full report (system dialog/PDF output not automated)",
+    "private history/dashboard",
+    "saved report detail",
+    "hostname omitted from stored report",
+    "destructive action confirmation and cancellation",
+    "375px mobile scan/history layout without page overflow",
+    "mobile scan",
+    "logout clears private report state",
+    "login restores private saved history",
+    "no uncaught JavaScript errors",
+    "no external application requests"
+  ],
+  "uncaughtPageErrors": [],
+  "externalApplicationRequests": [],
+  "screenshots": [
+    "ui-desktop.png",
+    "ui-report-desktop.png",
+    "ui-mobile.png",
+    "ui-history-mobile.png",
+    "ui-report-mobile.png"
+  ],
+  "limits": [
+    "Headless Firefox and two viewports only; not a formal WCAG audit.",
+    "Print action/expanded content checked; system print dialog and generated PDF not verified."
+  ]
+}

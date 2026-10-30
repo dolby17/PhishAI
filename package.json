@@ -8,6 +8,7 @@
   "scripts": {
     "build": "npm run build -w client && npm run build -w server",
     "test": "npm run test -w server",
+    "test:browser": "node scripts/browser-check.mjs",
     "dev:client": "npm run dev -w client",
     "dev:server": "npm run dev -w server",
     "check": "npm run build && npm test",

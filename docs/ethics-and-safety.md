@@ -4,7 +4,7 @@ Use only the reviewed publisher dataset under recorded CC BY 4.0 terms with attr
 
 Use reserved `example.com`, `.test`, and documentation IP ranges for demonstrations, clearly labeled synthetic. Synthetic examples demonstrate functionality only; they are not model-performance evidence. Render all submitted strings as escaped non-clickable text. No reputation/LLM providers receive submissions.
 
-Only account identifiers, password hashes and expiring server sessions persist. No full URL, query token, raw credentials-in-URL, or scan result is stored. Browser state and local machine access remain privacy concerns. History collection requires an explicit minimized record/retention/deletion design later.
+Account identifiers, password hashes, expiring server sessions and minimized private reports persist. Saved reports include verdicts/scores, numeric evidence and fixed explanations, but no original URL, hostname, path/query text, fragments or credentials-in-URL. Reports expire after 30 days and users can delete one or all. TTL removal is asynchronous; expired entries are immediately hidden from application reads. Browser state and local machine access remain privacy concerns. Exported JSON also omits the hostname; browser print/PDF can include the immediate report's hostname, so inspect it before sharing.
 
 The model has historical-source and label limitations. Language/script, hosting, campaign and source biases are not independently measured. Do not describe risk scores as calibrated probabilities, discriminate based on a TLD, or imply that internationalized hosts are inherently malicious. Explain weak signals and false positives. Low risk never establishes safety.
 
